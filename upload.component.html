@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>File Upload</h2>
+  <input type="file" (change)="selectFiles($event)" multiple>
+  <button (click)="uploadFiles()" [disabled]="!selectedFiles">Upload</button>
+
+  <div *ngFor="let progressInfo of progressInfos">
+    <span>{{ progressInfo.fileName }}</span>
+    <div class="progress-bar-container">
+      <div class="progress-bar" [style.width.%]="progressInfo.value">{{progressInfo.value}}%</div>
+    </div>
+  </div>
+
+  <div *ngIf="message.length">
+    <h3>Messages</h3>
+    <div *ngFor="let msg of message">{{ msg }}</div>
+  </div>
+</div>
